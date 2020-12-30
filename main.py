@@ -13,7 +13,7 @@ input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_button_pressed_b():
     global num
-    if num < 1:
+    if num < 2:
         num += 1
         get_num()
 input.on_button_pressed(Button.B, on_button_pressed_b)
@@ -71,9 +71,18 @@ def on_button_pressed_ab():
                 if num < 10:
                     num += 1
             input.on_button_pressed(Button.B, on_button_pressed_b3)
+    elif num == 2:
+        num = 0
+        while True:
+            get_num()
+            def on_gesture_shake():
+                global num
+                num = randint(1, 6)
+            input.on_gesture(Gesture.Shake, on_gesture_shake)
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
 # =========================================================================
+# racourci icône.
 def get_coeur():
     return basic.show_icon(IconNames.HEART)
 

@@ -15,7 +15,7 @@ input.onButtonPressed(Button.A, function on_button_pressed_a() {
 })
 input.onButtonPressed(Button.B, function on_button_pressed_b() {
     
-    if (num < 1) {
+    if (num < 2) {
         num += 1
         get_num()
     }
@@ -85,10 +85,20 @@ input.onButtonPressed(Button.AB, function on_button_pressed_ab() {
                 
             })
         }
+    } else if (num == 2) {
+        num = 0
+        while (true) {
+            get_num()
+            input.onGesture(Gesture.Shake, function on_gesture_shake() {
+                
+                num = randint(1, 6)
+            })
+        }
     }
     
 })
 //  =========================================================================
+//  racourci icône.
 function get_coeur() {
     return basic.showIcon(IconNames.Heart)
 }
